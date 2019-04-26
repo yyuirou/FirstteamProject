@@ -30,7 +30,7 @@
 /* Anagram Game Application */
 
 package com.toy.anagrams.lib;
-
+import java.util.*;
 /**
  * Implementation of the logic for the Anagram Game application.
  */
@@ -57,6 +57,7 @@ final class StaticWordLibrary extends WordLibrary {
         "fragment",
         "hexadecimal",
         "implementation",
+        "independence", //追加
         "indistinguishable",
         "inheritance",
         "internet",
@@ -83,8 +84,20 @@ final class StaticWordLibrary extends WordLibrary {
         "unsigned",
         "traditional"};
 
-    private static final String[] SCRAMBLED_WORD_LIST = {
-        "batsartcoin",
+  //  private static final String[] SCRAMBLED_WORD_LIST = {
+    private static String SCRAMBLED_WORD_LIST(int idx){
+    	String str = WORD_LIST[idx];
+    	String[] complicatedWord = str.split("");//一文字一文字
+    	String[] scrambleWord = new String[complicatedWord.length];
+    	for(int i=0;i<complicatedWord.length;i++){
+    		//ランダムに重複しないように格納し直したい
+    	}
+    	String newWord = scrambleWord[0];//配列により組み替えられた文字列
+    	for(int i=1;i<complicatedWord.length;i++) newWord = newWord + scrambleWord[i];
+    	return newWord;
+    }
+    		
+   /*    "batsartcoin",
         "maibuguos",
         "ratimhteci",
         "abkclssha",
@@ -104,6 +117,7 @@ final class StaticWordLibrary extends WordLibrary {
         "rfgaemtn",
         "ehaxedicalm",
         "milpmeneatitno",
+      //  "dpcieeinennd",//追加
         "niidtsniugsiahleb",
         "niehiratcen",
         "nietnret",
@@ -129,7 +143,7 @@ final class StaticWordLibrary extends WordLibrary {
         "evtrxe",
         "nuisngde",
         "rtdatioialn"
-    };
+    };*/
     
     final static WordLibrary DEFAULT = new StaticWordLibrary();
 
@@ -154,7 +168,7 @@ final class StaticWordLibrary extends WordLibrary {
      * @return word at that index in its scrambled form
      */
     public String getScrambledWord(int idx) {
-        return SCRAMBLED_WORD_LIST[idx];
+        return SCRAMBLED_WORD_LIST(idx);
     }
 
     /**
